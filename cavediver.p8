@@ -9,6 +9,7 @@ function _init()
 end
 
 function _update()
+    move_player()
 end
 
 function _draw()
@@ -38,6 +39,20 @@ function draw_player()
         spr(player.fall, player.x, player.y)
     end
 end
+
+function move_player()
+    gravity=0.2 -- bigger means more gravity
+    player.dy+=gravity -- add gravity
+
+    -- jump
+    if (btnp(2)) then
+        player.dy-=5
+    end
+
+    -- move to new position
+    player.y+=player.dy
+end
+
 __gfx__
 0000000000aaaa0000aaaa0000888800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 000000000aaaaaa00aaaaaa008888880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
