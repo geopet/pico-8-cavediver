@@ -15,6 +15,29 @@ function _draw()
 	cls()
 	draw_player()
 end
+-->8
+-- make player & draw player
+function make_player()
+    player={}
+    player.x=24      -- position
+    player.y=60
+    player.dy=0      -- fall speed
+    player.rise=1    -- sprites
+    player.fall=2
+    player.dead=3
+    player.speed=2   -- fly speed
+    player.score=0
+end
+
+function draw_player()
+    if (game_over) then
+        spr(player.dead, player.x, player.y)
+    elseif (player.dy<0) then
+        spr(player.rise, player.x, player.y)
+    else
+        spr(player.fall, player.x, player.y)
+    end
+end
 __gfx__
 0000000000aaaa0000aaaa0000888800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 000000000aaaaaa00aaaaaa008888880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
