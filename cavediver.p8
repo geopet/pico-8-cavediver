@@ -30,6 +30,7 @@ function _draw()
         print("press ❎ to play again!",18,72,6)
     else
         print("score:"..player.score,2,2,7)
+        print("speed:"..player.speed,2,8,7)
     end
 end
 -->8
@@ -71,6 +72,14 @@ function move_player()
 
     -- update score
     player.score+=player.speed
+
+    if (player.score>=2000) then
+        player.speed=5
+    elseif (player.score>=1000) then
+        player.speed=4
+    elseif (player.score>=500) then
+        player.speed=3
+    end
 end
 
 function check_hit()
