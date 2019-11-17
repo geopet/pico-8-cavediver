@@ -10,8 +10,11 @@ function _init()
 end
 
 function _update()
-    update_cave()
-    move_player()
+    if (not game_over) then
+        update_cave()
+        move_player()
+        check_hit()
+    end
 end
 
 function _draw()
@@ -54,6 +57,15 @@ function move_player()
 
     -- move to new position
     player.y+=player.dy
+end
+
+function check_hit()
+    for i=player.x,player.x+7 do
+        if (cave[i+1].top>player.y
+            or cave[i+1].btm<player.y+7) then
+            game_over=true
+        end
+    end
 end
 -->8
 -- cave functions
