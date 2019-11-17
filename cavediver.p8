@@ -14,6 +14,8 @@ function _update()
         update_cave()
         move_player()
         check_hit()
+    else
+        if (btnp(5)) _init() -- restart
     end
 end
 
@@ -25,6 +27,7 @@ function _draw()
     if(game_over) then
         print("game over!",44,44,7)
         print("your score:"..player.score,34,54,7)
+        print("press ❎ to play again!",18,72,6)
     else
         print("score:"..player.score,2,2,7)
     end
